@@ -11,7 +11,7 @@ echo "installing xcode"
 xcode-select --install
 
 echo "create projects folder"
-mkdir -p ${HOME}/worksapce/{repository,ideas,courses}
+mkdir -p ${HOME}/workspace/{repository,ideas,courses}
 
 echo "installing homebrew stuff"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
