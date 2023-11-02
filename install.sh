@@ -1,25 +1,25 @@
-echo "Hello $(whoami)! Let's get you set up."
+#! /bin/bash
 
 [ -z $1 ] && echo "Missing passphrase" && exit 1
-[ -z $2 ] && echo "Missing personal email" && exit 1
-[ -z $3 ] && echo "Missing work email" && exit 1
 
+# Ask for the administrator password upfront
 sudo -v
 
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+echo "Hello $(whoami)! Let's get you set up."
 
 echo "installing xcode"
 xcode-select --install
 
 echo "create projects folder"
-mkdir -p ${HOME}/workspace/{repository,ideas,courses}
+mkdir -p ${HOME}/worksapce/{repository,ideas,courses}
 
-echo "installing homebrew stuff"
+echo "installing homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew tap sdkman/tap
-
+echo "installing apps"
 brew install --cask \
 intellij-idea \
 visual-studio-code \
@@ -32,6 +32,8 @@ github \
 spotify \
 bitwarden \
 rectangle
+
+brew tap sdkman/tap
 
 brew install \
 node \
@@ -51,14 +53,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 echo "configuring ssh"
-ssh-keygen -t ed25519 -C "$3" -N "$1" -f ~/.ssh/github_id_ed25519_personal
-ssh-keygen -t ed25519 -C "$2" -N "$1" -f ~/.ssh/github_id_ed25519
-
-ssh-add -K ~/.ssh/github_id_ed25519_personal
-ssh-add -K ~/.ssh/github_id_ed25519
+ssh-keygen -t ed25519 -C "diogo.cardoso@outlook.com" -N "$1" -f ~/.ssh/github_id_ed25519
 
 echo "cloning dotfiles"
-git clone https://github.com/JPedroBorges/dotfiles.git "${HOME}/.dotfiles"
+git clone https://github.com/dpcardoso/dotfiles.git "${HOME}/.dotfiles"
 ln -s "${HOME}/.dotfiles/joao.borges/.zshrc" "${HOME}/.zshrc"
 ln -s "${HOME}/.dotfiles/joao.borges/.p10k.zsh" "${HOME}/.p10k.zsh"
 ln -s "${HOME}/.dotfiles/joao.borges/.gitconfig" "${HOME}/.gitconfig"
@@ -69,8 +67,7 @@ ln -s "${HOME}/.dotfiles/joao.borges/Library/Application Support/iTerm2/DynamicP
 
 printf "TODO:\n\
 \tconfigure: \n\
-\t\tGitHub: (personal)\t SSH Key (pbcopy < ~/.ssh/github_id_ed25519_personal.pub) \n\
-\t\tGitHub: (work)\t SSH Key (pbcopy < ~/.ssh/github_id_ed25519.pub) \n\
+\t\tGitHub: SSH Key (pbcopy < ~/.ssh/github_id_ed25519.pub) \n\
 \t\tIntellij: File | Manage IDE Settings | Import Settings | intellij/settings.zip \n\
 \t\tCertificates: https://fanduel.atlassian.net/wiki/spaces/~674092252/pages/308064945548/macos+starter+guide
 \n
