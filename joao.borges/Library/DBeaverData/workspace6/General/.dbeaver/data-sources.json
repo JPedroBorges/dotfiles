@@ -1,79 +1,6 @@
 {
 	"folders": {},
 	"connections": {
-		"oracle_thin-18b37d3cec3-27b4e4dce817150a": {
-			"provider": "oracle",
-			"driver": "oracle_thin",
-			"name": "DEV video DB",
-			"save-password": true,
-			"configuration": {
-				"host": "localhost",
-				"port": "1521",
-				"database": "ORCL",
-				"url": "jdbc:oracle:thin:@(DESCRIPTION\u003d(ADDRESS_LIST\u003d(LOAD_BALANCE\u003d off)(FAILOVER\u003d on)(ADDRESS\u003d(PROTOCOL\u003d TCP)(HOST\u003dnxtbfvideo-ie1-vip.nxt.betfair)(PORT\u003d 1521))(ADDRESS\u003d(PROTOCOL\u003d TCP)(HOST\u003dnxtbfvideo-ie2-vip.nxt.betfair)(PORT\u003d 1521)))(CONNECT_DATA\u003d(SERVICE_NAME\u003dNXTBFVIDEO)))",
-				"configurationType": "URL",
-				"type": "test",
-				"provider-properties": {
-					"@dbeaver-connection-type@": "CUSTOM",
-					"@dbeaver-sid-service@": "SERVICE"
-				},
-				"auth-model": "oracle_native"
-			}
-		},
-		"mysql8-18b384ba9b5-5172a46e1227e799": {
-			"provider": "mysql",
-			"driver": "mysql8",
-			"name": "DEV NXT DTS",
-			"save-password": true,
-			"configuration": {
-				"host": "njss1-dtsmfd01-nxt.dev.fndlsb.net",
-				"port": "3306",
-				"url": "jdbc:mysql://njss1-dtsmfd01-nxt.dev.fndlsb.net:3306/",
-				"configurationType": "MANUAL",
-				"type": "test",
-				"auth-model": "native"
-			}
-		},
-		"mysql8-18b38504851-13a343e09d58a81f": {
-			"provider": "mysql",
-			"driver": "mysql8",
-			"name": "PRD WV1 DTS",
-			"save-password": true,
-			"read-only": true,
-			"configuration": {
-				"host": "wv1-dtsmfd01-prdwv.prd.fndlsb.net",
-				"port": "3306",
-				"url": "jdbc:mysql://wv1-dtsmfd01-prdwv.prd.fndlsb.net:3306/",
-				"configurationType": "MANUAL",
-				"type": "prod",
-				"properties": {
-					"connectTimeout": "20000",
-					"rewriteBatchedStatements": "true",
-					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2"
-				},
-				"auth-model": "native"
-			}
-		},
-		"oracle_thin-18b4762fee5-31bfd2f6a2ac66a": {
-			"provider": "oracle",
-			"driver": "oracle_thin",
-			"name": "PRD video DB",
-			"save-password": true,
-			"read-only": true,
-			"configuration": {
-				"host": "localhost",
-				"port": "1521",
-				"database": "ORCL",
-				"url": "jdbc:oracle:thin:@(DESCRIPTION\u003d(ADDRESS_LIST\u003d(LOAD_BALANCE\u003d off)(FAILOVER\u003d on)(ADDRESS\u003d(PROTOCOL\u003d TCP)(HOST\u003dbfvideo-db-vip.prd.betfair)(PORT\u003d 1521))(ADDRESS\u003d(PROTOCOL\u003d TCP)(HOST\u003dbfvideo-db-vip-ie2.prd.betfair)(PORT\u003d 1521)))(CONNECT_DATA\u003d(SERVICE_NAME\u003dBFVIDEO_VHS)))",
-				"configurationType": "URL",
-				"type": "prod",
-				"provider-properties": {
-					"@dbeaver-connection-type@": "CUSTOM",
-					"@dbeaver-sid-service@": "SERVICE"
-				},
-				"auth-model": "oracle_native"
-			}
-		},
 		"mysql8-18b57defddf-f68c83b3fd80235": {
 			"provider": "mysql",
 			"driver": "mysql8",
@@ -90,8 +17,7 @@
 					"rewriteBatchedStatements": "true",
 					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2"
 				},
-				"auth-model": "native",
-				"handlers": {}
+				"auth-model": "native"
 			}
 		},
 		"postgres-jdbc-18b5c2771f2-41681fab03df0fbe": {
@@ -106,36 +32,11 @@
 				"url": "jdbc:postgresql://localhost:5432/greencycle",
 				"configurationType": "MANUAL",
 				"type": "dev",
-				"provider-properties": {},
 				"auth-model": "native"
 			}
 		}
 	},
 	"connection-types": {
-		"test": {
-			"name": "Test",
-			"color": "org.jkiss.dbeaver.color.connectionType.qa.background",
-			"description": "Test (QA) database",
-			"auto-commit": true,
-			"confirm-execute": false,
-			"confirm-data-change": true,
-			"smart-commit": false,
-			"smart-commit-recover": false,
-			"auto-close-transactions": true,
-			"close-transactions-period": 1800
-		},
-		"prod": {
-			"name": "Production",
-			"color": "org.jkiss.dbeaver.color.connectionType.prod.background",
-			"description": "Production database",
-			"auto-commit": false,
-			"confirm-execute": true,
-			"confirm-data-change": true,
-			"smart-commit": false,
-			"smart-commit-recover": false,
-			"auto-close-transactions": true,
-			"close-transactions-period": 600
-		},
 		"dev": {
 			"name": "Development",
 			"color": "255,255,255",

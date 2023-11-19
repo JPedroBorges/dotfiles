@@ -55,6 +55,10 @@ ssh-keygen -t ed25519 -C "$1" -N "" -f ~/.ssh/github_id_ed25519
 ssh-add --apple-use-keychain ~/.ssh/github_id_ed25519
 
 echo "cloning dotfiles"
+mkdir -p  "${HOME}/Library/Application Support/Code/User"
+mkdir -p  "${HOME}/Library/DBeaverData/workspace6/General/.dbeaver"
+mkdir -p  "${HOME}/Library/Application Support/iTerm2/DynamicProfiles"
+
 git clone https://github.com/JPedroBorges/dotfiles.git "${HOME}/.dotfiles"
 ln -s "${HOME}/.dotfiles/joao.borges/.zshrc" "${HOME}/.zshrc"
 ln -s "${HOME}/.dotfiles/joao.borges/.p10k.zsh" "${HOME}/.p10k.zsh"
@@ -63,6 +67,8 @@ ln -s "${HOME}/.dotfiles/joao.borges/Library/Application Support/Code/User/setti
 ln -s "${HOME}/.dotfiles/joao.borges/Library/DBeaverData/workspace6/General/.dbeaver/data-sources.json" "${HOME}/Library/DBeaverData/workspace6/General/.dbeaver/data-sources.json"
 ln -s "${HOME}/.dotfiles/joao.borges/.ssh/config" "${HOME}/.ssh/config"
 ln -s "${HOME}/.dotfiles/joao.borges/Library/Application Support/iTerm2/DynamicProfiles/joao.borges.json" "${HOME}/Library/Application Support/iTerm2/DynamicProfiles/joao.borges.json"
+
+p10k configure
 
 printf "TODO:\n\
 \tconfigure: \n\
