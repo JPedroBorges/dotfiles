@@ -34,6 +34,7 @@ bitwarden \
 rectangle
 
 brew install \
+maven \
 node \
 nvm \
 yarn \
@@ -77,5 +78,4 @@ printf "TODO:\n\
 \tinstall: \n\
 \t\tAmphetamine (https://apps.apple.com/pt/app/amphetamine/id937984704?mt=12)  \n\
 \t\tClipy (https://clipy-app.com)  \n\
-\t\tMaven@3.6.3 (https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.6.3) to \"/opt/apache-maven\"  \n\
 "
